@@ -1,12 +1,10 @@
 const fs = require('fs');
 
+// Files
 /* **************************
+
 Documentation:
 https://nodejs.org/api/fs.html
-************************** */
-
-/* **************************
-PART 1: 
 
 //create a file
 fs.writeFile('example.txt', "This is an example", (err) => {
@@ -55,4 +53,62 @@ fs.unlink('example2.txt', (err) => {
 		console.log('File Deleted File');
 	}
 });
+
+************************** */
+
+// Folders
+/*
+fs.mkdir('tutorial', (err) => {
+	if (err) {
+		console.log(err);
+	} else {
+		console.log('Folder created');
+		
+		fs.writeFile('./tutorial/example.txt', '123', (err) => {
+			if (err) {
+				console.log(err);
+			} else {
+				console.log('file created');
+			}
+		});
+	}
+});
+
+fs.unlink('./tutorial/example.txt', (err) => {
+	if (err) {
+		console.log(err);
+	} else {
+		console.log('deleted file');
+		
+// remove folder
+		fs.rmdir('tutorial', (err) => {
+			if (err) {
+				console.log(err);
+			} else {
+				console.log('Folder removed');
+			}
+		});
+	}
+});
+*/
+
+// view files in directory
+/* **************************
+fs.readdir('./test', (err, files) => {
+	if (err) {
+		console.log(err);
+	} else {
+		console.log(files);
+		for (let file of files) {
+			fs.unlink('./test/' + file, (err) => {
+				if (err) {
+					console.log(err);
+				} else {
+					console.log('successful delete');
+				}
+			});
+		}
+	}
+});
+
 ************************** */
